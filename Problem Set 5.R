@@ -143,7 +143,10 @@ f_stat <- iv_summary$diagnostics["Weak instruments", "statistic"]
 # 7. What can we conclude about the IV estimates that use x^*_3 as the instrument? Why does it matter?
 ##### steps of work process
 
+## The Below is the same in this dirty version as it is in the clean version for comments/answers. I do not want to force you to read it twice.
 
+# Concentration, mu squared, parameter will become more dominate as strength of the instruments grow. A high F-statistic suggests a strong instrument while a low F-stat suggests a weak one. Given that the data within the sim results, granted only showing the first several of the series without expanding it, shows that the F-Stat of IV_x^*_3 is weak, while the IV_x^*_2 is strong. While looking into the console after running the full script the relative scale that the with the use of the LLN, it shows that the mean of the F-stat of IV_x^*_2 will be much greater than that of the mean of F-stat IV_x^*_3. Comparing the mean, plim, of beta_x^*_2, is closer to the theoretical/true beta value of 0.5; while beta_x^*_3 will be off on a larger amount. For my examples I had gotten beta_x^*_2 is approximately 0.4912 while beta_x^*_3 is 0.5196. With my F-stat of IV_x^*_2 approximating 578.32 with the F-stat of IV_x^*_3 being 20.64.
+# To add a point of clarity, while beta_x^*_2 is closer to the true/theory beta than beta_x^*_3, they are still both fairly close. However the large issue with this comes out from the fact that the variation within x^*_3 is quite large, and would make the performance of any single sample highly unreliable, but with a large enough size it should come back. But this would mean we would have to have a very large N, much greater than the 500 we are using here, something like over a million or more.
 
 
 
