@@ -77,4 +77,15 @@ mean(sim_results$f_stat_iv_x3)
 sd(sim_results$beta_iv_x2)
 sd(sim_results$beta_iv_x3)
 
+# Piping to graph, ggplot2 from w/in tidyverse
+sim_results %>%
+  select(beta_iv_x2, beta_iv_x3) %>%
+  pivot_longer(cols = everything(), names_to = "Instrument", values_to = "Estimate") %>%
+  ggplot(aes(x = Estimate, fill = Instrument)) +
+  geom_density(alpha = 0.5) +
+  labs(
+    title = "Kernel Density Estimates of IV Estimators",
+    x = "Beta Hat",
+    y = "Density"
+  ) + theme_minimal()
 

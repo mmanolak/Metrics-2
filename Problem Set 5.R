@@ -125,6 +125,18 @@ f_stat <- iv_summary$diagnostics["Weak instruments", "statistic"]
 ##### 6 & 7. Consequences of Weak Instruments
 # 6. Using the two-way command, plot kernel density estimates of both simulated IV estimates in a single plot.
 ##### steps of work process
+# For this the work will mostly continue onto the Clean version as I did not compile both here as it kept getting too messy for me. However I will comment below what I added into the clean at this step to get the graphs to show up for question/part/step.
+
+#sim_results %>%
+#  select(beta_iv_x2, beta_iv_x3) %>%
+#  pivot_longer(cols = everything(), names_to = "Instrument", values_to = "Estimate") %>%
+#  ggplot(aes(x = Estimate, fill = Instrument)) +
+#  geom_density(alpha = 0.5) +
+#  labs(
+#    title = "Kernel Density Estimates of IV Estimators",
+#    x = "Beta Hat",
+#    y = "Density"
+#  ) + theme_minimal()
 
 
 
