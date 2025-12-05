@@ -62,6 +62,7 @@ for (i in 1:n_sims) {
 }
 
 
+
 # 2. What are the theoretical biases from a regression of y onto x^*_1, x^*_2, and x^*_3? #########################
 ##### steps of work process
 
@@ -107,25 +108,27 @@ sim_results$beta_hat_iv[i] <- beta_iv_x1
 
 
 
-
-
 # 5. What are the average first stage F-statistics from both sets of regressions? ###################################
 # Weak Instruments
 ##### steps of work process
 
+# Summary object creation w/ diagnostics enabled
+# This calculates the Weak Instruments test (First-stage F-stat)
+iv_summary <- summary(iv_model, diagnostics = TRUE)
+
+# Extract F Stats
+# Storing it in the 'diagnostics' matrix under the row "Weak instruments" and column "statistic"
+f_stat <- iv_summary$diagnostics["Weak instruments", "statistic"]
 
 
 
-
-
-
-
-
-
-
+##### 6 & 7. Consequences of Weak Instruments
 # 6. Using the two-way command, plot kernel density estimates of both simulated IV estimates in a single plot.
+##### steps of work process
+
+
+
 # 7. What can we conclude about the IV estimates that use x^*_3 as the instrument? Why does it matter?
-# 6 & 7. Consequences of Weak Instruments
 ##### steps of work process
 
 
