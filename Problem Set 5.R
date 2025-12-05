@@ -4,6 +4,7 @@
 #5 December 2025
 
 library(tidyverse)
+library(AER)
 #library(wooldridge)
 
 # Consider the Following Data Generating Process (DGP):
@@ -87,7 +88,7 @@ sim_results$beta_hat_ols[i] <- beta_x1
 # 3. How do the empirical biases compare to the theoretical biases?  #################################################
 ##### steps of work process
 
-# It was a many step process, first we would need to recreate question 1 too then account for beta_hat_x3 and beta_hat_x2. From here we then would add in the information gathered from within the for loop in question 2 after the generation of the temporary dataframe. To be more specific, I put in the ols_model1/2/3 along with the related sim_results for the beta_hat.F After the for loop I took the average for fun. By this I mean that using the LLN from Ch.3 of Wooldridge and Amemiya, we can use this to average to approximate a probability limit.
+# It was a many step process, first we would need to recreate question 1 too then account for beta_hat_x3 and beta_hat_x2. From here we then would add in the information gathered from within the for loop in question 2 after the generation of the temporary dataframe. To be more specific on what was added after the for loop, I put in the ols_model1/2/3 along with the related sim_results for the beta_hat.F After the for loop I took the average for fun and resolve question 3. By this I mean that using the LLN from Ch.3 of Wooldridge and Amemiya, we can use this to average to approximate a probability limit.
 
 
 
@@ -95,10 +96,14 @@ sim_results$beta_hat_ols[i] <- beta_x1
 # IV as a solution to measurement error
 ##### steps of work process
 
+# Estimate IV regression (y on x^*_1, instrumented by x^*_2)
+iv_model <- ivreg(y ~ x1 | x2, data = df_iter)
 
+# Extract the coefficient for x1
+beta_iv_x1 <- coef(iv_model)[["x1"]]
 
-
-
+# Saving Results
+sim_results$beta_hat_iv[i] <- beta_iv_x1
 
 
 

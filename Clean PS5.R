@@ -3,7 +3,10 @@
 #Problem Set 5 - Clean Version (Minimal Comments)
 #5 December 2025
 
+#install.packages(c("tidyverse", "AER", "wooldridge"))
+
 library(tidyverse)
+library(AER)
 #library(wooldridge)
 
 # Defining Parameters
