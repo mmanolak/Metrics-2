@@ -1,7 +1,7 @@
 #Michael Manolakis 
 #Econ 629 Econometrics 2 - CRN 79650
 #Problem Set 5 - Clean Version (Minimal Comments)
-#5 December 2025
+#9 December 2025
 
 #install.packages(c("tidyverse", "AER", "wooldridge"))
 
